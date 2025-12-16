@@ -1,0 +1,21 @@
+services:
+  vault-snapshot-agent:
+    container_name: vault-raft-snapshot-agent
+    image: ghcr.io/omidiyanto/govalite-lightweight-vault-raft-snapshot-agent:latest
+    network_mode: "host"
+    restart: unless-stopped
+    environment:
+      VAULT_ADDR: https://127.0.0.1:8200
+      VAULT_ROLE_ID: f5f7ce0b-xxxxx
+      VAULT_SECRET_ID: a7bbf782-xxxxxx
+      SNAPSHOT_FREQUENCY: 2m
+      SNAPSHOT_PREFIX: main/raft-snapshot-
+      SNAPSHOT_RETAIN: 5
+      AWS_ENDPOINT_URL: https://s3.omidiyanto.local
+      STORAGE_S3_BUCKET: vault-cluster-snapshots
+      STORAGE_S3_REGION: us-east-1
+      AWS_ACCESS_KEY_ID: admin
+      AWS_SECRET_ACCESS_KEY: "PASS"
+      SNAPSHOT_TIMEZONE: Asia/Jakarta
+      ENABLE_S3: true
+      ENABLE_LOCAL: false

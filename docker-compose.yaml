@@ -1,7 +1,7 @@
 services:
   vault-snapshot-agent:
     container_name: vault-raft-snapshot-agent
-    image: ghcr.io/omidiyanto/govalite-lightweight-vault-raft-snapshot-agent:latest
+    image: ghcr.io/omidiyanto/govalite:latest
     network_mode: "host"
     restart: unless-stopped
     environment:
